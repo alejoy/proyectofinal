@@ -1,0 +1,20 @@
+[
+  {
+    "title": "iPhone 15 Pro",
+    "description": "New iPhone Sarasa",
+    "code": "123df34f",
+    "price": 1100,
+    "id": "668a67f3-57ee-414f-9daa-907bd641ac0b"
+  },
+  {
+    "title": "iPhone 15 Pro",
+    "description": "New iPhone Sarasa",
+    "code": "123df34f",
+    "price": 1100,
+    "status": true,
+    "stock": 10,
+    "category": "cellphones",
+    "thumbnails": "./img/iphone15.jpg",
+    "id": "5d4dd220-c870-489c-b665-eda0d3fe654d"
+  }
+]
