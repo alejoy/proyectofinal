@@ -1,6 +1,6 @@
 import express from 'express';
 import fs from 'fs';
-import { generateNewCartId } from '../utils.js';
+import { generateNewCartId, getById} from '../utils.js';
 
 
 const router = express.Router();
@@ -11,15 +11,15 @@ router.post('/', (req, res) => {
   const newCart = req.body;
   const cartsData = JSON.parse(fs.readFileSync(DB_PATH, 'utf8'));
   newCart.id = generateNewCartId();
-  cartsData.push(newCart);
+  cartsData.push({...newCart, products: []});
   fs.writeFileSync(DB_PATH, JSON.stringify(cartsData, null, 2));
   res.json(newCart);
 });
 
+
 // Ruta para listar los productos de un carrito por ID de carrito
 router.get('/:cid', (req, res) => {
-  const cartsData = getById(req.params.pid, DB_PATH);
-  const cart = cartsData.find((c) => c.id === cartId);
+  const cart = getById(req.params.cid, DB_PATH);
   if (cart) {
     res.json(cart.products);
   } else {
@@ -37,6 +37,7 @@ router.post('/:cid/product/:pid', (req, res) => {
   if (cart) {
     const productsData = JSON.parse(fs.readFileSync('./src/data/productos.json', 'utf8'));
     const product = productsData.find((p) => p.id === productId);
+    console.log(product);
     if (product) {
       const existingProduct = cart.products.find((p) => p.id === productId);
       if (existingProduct) {
