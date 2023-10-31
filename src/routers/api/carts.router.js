@@ -1,6 +1,5 @@
 import express from 'express';
 import fs from 'fs';
-import { generateNewCartId, getById} from '../utils.js';
 
 
 const router = express.Router();

@@ -3,9 +3,8 @@ import handlebars from 'express-handlebars';
 import path from 'path';
 
 import { __dirname } from './utils.js';
-import studentsApiRouter from './routers/api/students.router.js';
-import studentsViewRouter from './routers/views/students.router.js';
-import products from './routers/api/products.router.js';
+import productsViewRouter from './routers/views/products.router.js';
+import productsApiRouter from './routers/api/products.router.js';
 import carts from './routers/api/carts.router.js';
 
 const app = express();
@@ -22,15 +21,8 @@ app.get('/', (req, res) => {
   res.send('Hello from backend 🖐️');
 });
 
-// app.use('/', studentsViewRouter);
-// app.use('/api', studentsApiRouter);
-
-// Rutas para productos
-app.use('/api/products', products);
-
-// Rutas para carritos
-app.use('/api/carts', carts);
-
+app.use('/', productsViewRouter);
+app.use('/api', productsApiRouter);
 
 app.use((error, req, res, next) => {
   const message = `Ah ocurrido un error inesperado 😨: ${error.message}`;
