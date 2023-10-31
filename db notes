@@ -1,4 +1,3 @@
-user: developer
-pass: 4IyZ8uqIVQUny4nS
 
-mongodb+srv://developer:4IyZ8uqIVQUny4nS@cluster0.hstycov.mongodb.net/
+
+mongodb+srv://developer:@cluster0.hstycov.mongodb.net/
